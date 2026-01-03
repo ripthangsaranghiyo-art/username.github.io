@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>LAVA X PANEL</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+    font-family:system-ui, sans-serif;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg,#0b0f14,#0f2a24);
+    color:#fff;
+}
+
+/* ===== CARD ===== */
+.card{
+    width:90%;
+    max-width:360px;
+    background:rgba(0,0,0,0.55);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 0 30px rgba(0,255,180,0.25);
+}
+
+.title{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:18px;
+    color:#5cffc9;
+}
+
+/* ===== INPUT ===== */
+.input-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    color:#000;
+    border-radius:14px;
+    margin-bottom:14px;
+    overflow:hidden;
+}
+
+.input-box span{
+    width:46px;
+    text-align:center;
+    font-size:18px;
+    background:#0f1720;
+    color:#5cffc9;
+}
+
+.input-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:14px;
+    font-size:15px;
+}
+
+/* ===== BUTTON ===== */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(90deg,#00c9a7,#00ff88);
+    color:#000;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:6px;
+}
+
+/* ===== PANEL ===== */
+.hidden{display:none;}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    padding:12px 14px;
+    border-radius:14px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.item input{display:none;}
+
+.switch{
+    width:46px;
+    height:26px;
+    background:#333;
+    border-radius:20px;
+    position:relative;
+    transition:.3s;
+}
+
+.switch::after{
+    content:'';
+    width:22px;
+    height:22px;
+    background:#fff;
+    border-radius:50%;
+    position:absolute;
+    top:2px;
+    left:2px;
+    transition:.3s;
+}
+
+.item input:checked + .switch{
+    background:linear-gradient(90deg,#00c9a7,#00ff88);
+}
+
+.item input:checked + .switch::after{
+    transform:translateX(20px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="card" id="login">
+    <div class="title">LAVA X PANEL</div>
+
+    <div class="input-box">
+        <span>👤</span>
+        <input type="text" id="user" placeholder="USERNAME">
+    </div>
+
+    <div class="input-box">
+        <span>🔒</span>
+        <input type="password" id="pass" placeholder="PASSWORD">
+    </div>
+
+    <button onclick="login()">เข้าสู่ระบบ</button>
+</div>
+
+<!-- PANEL -->
+<div class="card hidden" id="panel">
+    <div class="title">LAVA X PANEL</div>
+
+    <label class="item">
+        AIMLOCK 80%
+        <input type="checkbox">
+        <span class="switch"></span>
+    </label>
+
+    <label class="item">
+        AIMBOT 120%
+        <input type="checkbox">
+        <span class="switch"></span>
+    </label>
+
+    <label class="item">
+        AIMSHOT 50%
+        <input type="checkbox">
+        <span class="switch"></span>
+    </label>
+
+    <label class="item">
+        120FPS
+        <input type="checkbox">
+        <span class="switch"></span>
+    </label>
+
+    <label class="item">
+        AIM DATA
+        <input type="checkbox">
+        <span class="switch"></span>
+    </label>
+</div>
+
+<script>
+function login(){
+    const u=document.getElementById("user").value;
+    const p=document.getElementById("pass").value;
+
+    if(u==="LAVA" && p==="KEYLASS-INF2"){
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("panel").classList.remove("hidden");
+        alert("✅ เข้าสู่ระบบสำเร็จ");
+    }else{
+        alert("❌ USERNAME หรือ PASSWORD ไม่ถูกต้อง");
+    }
+}
+</script>
+
+</body>
+  </html>
